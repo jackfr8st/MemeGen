@@ -1,0 +1,35 @@
+*{
+  /* font-family: "Karla"; */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: linear-gradient(90deg, rgba(166, 38, 211, 0.79) 0%, rgba(186, 110, 213, 0.81) 55.62%, rgba(198, 150, 215, 0.87) 89.76%); 
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+.karla_bold{
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.karla_light{
+  font-weight: 400;
+  color: #0D0D0D;
+}
+
+/* navbar */
+nav{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  background-image: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  padding: 30px;
+  font-size: 19px;
+  height: 100px;
+}
+
+nav>img{
+  height: 50px;
+}
