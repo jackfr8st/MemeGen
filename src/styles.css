@@ -1,22 +1,20 @@
 *{
-  /* font-family: "Karla"; */
+  font-family: "Karla",sans-serif;
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background-image: linear-gradient(90deg, rgba(166, 38, 211, 0.79) 0%, rgba(186, 110, 213, 0.81) 55.62%, rgba(198, 150, 215, 0.87) 89.76%); 
+  background-color: #d8b3e6;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
 
 .karla_bold{
   font-weight: 700;
-  color: #FFFFFF;
 }
 .karla_light{
   font-weight: 400;
-  color: #0D0D0D;
 }
 
 /* navbar */
@@ -28,6 +26,7 @@ nav{
   padding: 30px;
   font-size: 19px;
   height: 100px;
+  color: white;
 }
 
 nav>img{
@@ -37,7 +36,7 @@ nav>img{
 
 /* main page */
 
-.main-container{
+/* .main-container{
   display: flex;
   flex-direction: column;
   padding: 70px 60px;
@@ -67,6 +66,29 @@ nav>img{
   font-size: 20px;
   border-style: none;
   border-radius: 7px;
+} */
+
+main{
+  padding: 40px;
 }
 
+.form{
+  display: grid;
+  grid-template: 40px 40px/ 1fr 1fr;
+  gap: 20px;
+}
 
+.form-button{
+  grid-column: 1/-1;
+  border-radius: 5px;
+  border: none;
+  background-image: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: #C37CDC;
+  cursor: pointer;
+}
+
+.form-input{
+  border-radius: 5px;
+  border: 1px solid #D5D4D8;
+  text-indent: 5px;
+}
