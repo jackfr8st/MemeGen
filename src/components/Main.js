@@ -5,8 +5,9 @@ const Main = function(){
     let url
 
     function handleOnClick(){
-        const randomMeme = MemeData.data.memes[Math.floor(Math.random()*(MemeData.data.memes.length))]
-        url = randomMeme.url
+        const memeArr = MemeData.data.memes //this gives the array
+        const randomNumber = Math.floor(Math.random()*memeArr.length) //Math.random gives a random number between 0(inclusive) and 1(exclusive)
+        url = memeArr[randomNumber].url
         console.log(url)
     }
     return(
@@ -23,6 +24,8 @@ const Main = function(){
         //     </div>
         // </div>
 
+        // when you have a button inside a form element, it tends to submit the form and refresh the page unless stopped
+        // so in case you if ur button as no role in submission of the inputs of the form you can simply use div instead
         <main>
             <div className="form">
                 <input type={"text"} className="form-input karla_light" placeholder="Top text"/>
@@ -30,6 +33,7 @@ const Main = function(){
                 <button className="form-button karla_bold" onClick={handleOnClick}>Get a new meme image 🖼️</button>
             </div>
         </main>
+        //the above lines of code doesnt refresh the page as the elements input and button are not in the form element 
     )
 }
 
