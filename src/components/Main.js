@@ -1,15 +1,32 @@
 import React from "react";
 import MemeData from "../MemeData";
+import imgnotavail from "../img/imgna.png"
 
 const Main = function(){
+    
+    const [meme,setMeme] = React.useState(
+        {
+            topText: "",
+            bottomText: "",
+            randomImage: imgnotavail
+        }
+    ); 
+
+    const [allMemeImages,setAllMemeImages] =React.useState(MemeData)
+
     let url
 
     function handleOnClick(){
-        const memeArr = MemeData.data.memes //this gives the array
+        const memeArr = allMemeImages.data.memes //this gives the array
         const randomNumber = Math.floor(Math.random()*memeArr.length) //Math.random gives a random number between 0(inclusive) and 1(exclusive)
         url = memeArr[randomNumber].url
-        console.log(url)
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
     }
+
+
     return(
         
         // We didnt follow this bcoz we'll have to deal with the states which is simpler in the forms
@@ -32,6 +49,7 @@ const Main = function(){
                 <input type={"text"} className="form-input karla_light" placeholder="Bottom text"/>
                 <button className="form-button karla_bold" onClick={handleOnClick}>Get a new meme image 🖼️</button>
             </div>
+            <img src={meme.randomImage} alt="Meme" className="picture-frame"/>
         </main>
         //the above lines of code doesnt refresh the page as the elements input and button are not in the form element 
     )
