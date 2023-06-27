@@ -8,11 +8,13 @@ const Main = function(){
         {
             topText: "",
             bottomText: "",
-            randomImage: imgnotavail
+            randomImage: imgnotavail //by default this will be the image that will be pasted
         }
     ); 
 
     const [allMemeImages,setAllMemeImages] =React.useState(MemeData)
+
+    console.log(meme)
 
     let url
 
@@ -22,10 +24,21 @@ const Main = function(){
         url = memeArr[randomNumber].url
         setMeme(prevMeme => ({
             ...prevMeme,
-            randomImage: url
+            randomImage: url 
+            //now whenver we click on the button, a random url should be created which is the url of the new img
+            //since, now we're using the object of the meme, we change the randomImage property by spreading the past properties 
+            //and adding the changed property to the end like above
         }))
     }
 
+    function handleChange(event){
+        const {type, name, value} = event.target 
+
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name] : value
+        }))
+    }
 
     return(
         
@@ -45,11 +58,30 @@ const Main = function(){
         // so in case you if ur button as no role in submission of the inputs of the form you can simply use div instead
         <main>
             <div className="form">
-                <input type={"text"} className="form-input karla_light" placeholder="Top text"/>
-                <input type={"text"} className="form-input karla_light" placeholder="Bottom text"/>
+                <input 
+                    type="text"
+                    className="form-input karla_light"
+                    placeholder="Top text"
+                    name = "topText"
+                    value={meme.topText}
+                    onChange={handleChange}
+                />
+
+                <input 
+                    type = "text"
+                    className = "form-input karla_light"
+                    placeholder = "Bottom text"
+                    name = "bottomText"
+                    value = {meme.bottomText}
+                    onChange = {handleChange}
+                />  
                 <button className="form-button karla_bold" onClick={handleOnClick}>Get a new meme image 🖼️</button>
             </div>
-            <img src={meme.randomImage} alt="Meme" className="picture-frame"/>
+            <div className="meme">
+                <img src={meme.randomImage} alt="Meme--image" className="meme-image"/>
+                <h2 className="meme-text top">{meme.topText}</h2>
+                <h2 className="meme-text bottom">{meme.bottomText}</h2>
+            </div>
         </main>
         //the above lines of code doesnt refresh the page as the elements input and button are not in the form element 
     )
