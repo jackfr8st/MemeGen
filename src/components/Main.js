@@ -12,16 +12,16 @@ const Main = function(){
         }
     ); 
 
-    const [allMemeImages,setAllMemeImages] =React.useState(MemeData)
+    const [allMeme,setallMeme] =React.useState([])
 
     console.log(meme)
 
     let url
 
     function handleOnClick(){
-        const memeArr = allMemeImages.data.memes //this gives the array
-        const randomNumber = Math.floor(Math.random()*memeArr.length) //Math.random gives a random number between 0(inclusive) and 1(exclusive)
-        url = memeArr[randomNumber].url
+        // const memeArr = allMeme.data.memes //this gives the array
+        const randomNumber = Math.floor(Math.random()*allMeme.length) //Math.random gives a random number between 0(inclusive) and 1(exclusive)
+        url = allMeme[randomNumber].url
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url 
@@ -39,6 +39,29 @@ const Main = function(){
             [name] : value
         }))
     }
+
+    /**
+     * Challenge: 
+     * As soon as the Meme component loads the first time,
+     * make an API call to "https://api.imgflip.com/get_memes".
+     * 
+     * When the data comes in, save just the memes array part
+     * of that data to the `allMemes` state
+     * 
+     * Think about if there are any dependencies that, if they
+     * changed, you'd want to cause to re-run this function.
+     * 
+     * Hint: for now, don't try to use an async/await function.
+     * Instead, use `.then()` blocks to resolve the promises
+     * from using `fetch`. We'll learn why after this challenge.
+     */
+
+    React.useEffect(() => {
+        return fetch("https://api.imgflip.com/get_memes")
+                .then(res => res.json())
+                .then( Data => setallMeme(Data.data.memes))
+            
+    },[])
 
     return(
         
