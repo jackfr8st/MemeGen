@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/MemeGen)/static/css/main.e8e14f90.css",
-    "main.js": "/MemeGen)/static/js/main.c907fa0f.js",
-    "static/media/imgna.png": "/MemeGen)/static/media/imgna.fa1f50a379aa2fff63cd.png",
-    "index.html": "/MemeGen)/index.html",
-    "main.e8e14f90.css.map": "/MemeGen)/static/css/main.e8e14f90.css.map",
-    "main.c907fa0f.js.map": "/MemeGen)/static/js/main.c907fa0f.js.map"
+    "main.css": "/MemeGen/static/css/main.e8e14f90.css",
+    "main.js": "/MemeGen/static/js/main.e5f83436.js",
+    "static/media/imgna.png": "/MemeGen/static/media/imgna.fa1f50a379aa2fff63cd.png",
+    "index.html": "/MemeGen/index.html",
+    "main.e8e14f90.css.map": "/MemeGen/static/css/main.e8e14f90.css.map",
+    "main.e5f83436.js.map": "/MemeGen/static/js/main.e5f83436.js.map"
   },
   "entrypoints": [
     "static/css/main.e8e14f90.css",
-    "static/js/main.c907fa0f.js"
+    "static/js/main.e5f83436.js"
   ]
 }
